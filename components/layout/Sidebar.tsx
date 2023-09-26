@@ -6,9 +6,9 @@ import { signOut } from 'next-auth/react'
 import SidebarLogo from './SidebarLogo'
 import SidebarItem from './SidebarItem'
 import SidebarTweetButton from './SidebarTweetButton'
-import userCurrentUser from '@/hooks/useCurrentUser'
+import useCurrentUser from '@/hooks/useCurrentUser'
 const Sidebar = () => {
-    const { data: currentUser } = userCurrentUser();
+    const { data: currentUser } = useCurrentUser();
 
     const items = [
         {

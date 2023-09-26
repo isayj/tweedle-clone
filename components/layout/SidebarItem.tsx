@@ -1,4 +1,4 @@
-import userCurrentUser from "@/hooks/useCurrentUser";
+import useCurrentUser from "@/hooks/useCurrentUser";
 import useLoginModal from "@/hooks/useLoginModal";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
@@ -19,7 +19,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     auth
 }) => {
     const loginModal= useLoginModal();
-    const { data: currentUser } = userCurrentUser();
+    const { data: currentUser } = useCurrentUser();
     const router = useRouter();
     const handleClick = useCallback(() => {
         if (onClick) {

@@ -30,7 +30,7 @@ export default NextAuth({
                     throw new Error('Invalid credentials');
                 }
 
-                // Check correctness
+                // Check correctness    
                 const isCorrectPassword = await bcrypt.compare(
                     credentials.password,
                     user.hashedPassword
