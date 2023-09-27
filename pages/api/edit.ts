@@ -7,12 +7,12 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    if (req.method != 'PATCH') {
+    if (req.method !== 'PATCH') {
         return res.status(405).end();
     }
 
     try {
-        const { currentUser } = await serverAuth(req);
+        const { currentUser } = await serverAuth(req, res);
 
         const { name, username, bio, profileImage, coverImage } = req.body;
 
