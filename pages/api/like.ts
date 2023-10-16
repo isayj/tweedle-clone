@@ -33,6 +33,38 @@ export default async function handler(
 
         if (req.method === 'POST') {
             updatedLikedIds.push(currentUser.id);
+            // there's no reason that
+            // a failure of notification creation
+            // should affect the entire call
+
+            // so encapsulate its own try catch
+            try {
+                const post = await prisma.post.findUnique({
+                    where: {
+                        id: postId
+                    }
+                });
+
+                if (post?.userId) {
+                    await prisma.notification.create({
+                        data: {
+                            body: 'Someone liked your tweet!',
+                            userId: post.userId
+                        }
+                    });
+
+                    await prisma.user.update({
+                        where: {
+                            id: post.userId
+                        },
+                        data: {
+                            hasNotification: true
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
 
         if (req.method === 'DELETE') {

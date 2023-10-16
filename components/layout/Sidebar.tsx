@@ -20,7 +20,8 @@ const Sidebar = () => {
             label: 'Notifications',
             href: '/notifications',
             icon: BsBellFill,
-            auth: true
+            auth: true,
+            alert: currentUser?.hasNotification
         },
         {
             label: 'Profile',
@@ -36,14 +37,15 @@ const Sidebar = () => {
                 <div className='space-y-2 lg:w=[230px]'>
                     <SidebarLogo />
                     {/* iteration of items */}
+                    {/* href is always going to be unique */}
                     {items.map((item) => (
                         <SidebarItem
                             key={item.href}
-                            // href is always going to be unique
                             href={item.href}
                             label={item.label}
                             icon={item.icon}
                             auth={item.auth}
+                            alert={item.alert}
                         />
                     ))}
                     {/* the log out will only be available if there's the current user*/}
