@@ -3,16 +3,16 @@
 This is a [Next.js](https://nextjs.org/) `Twitter clone` project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Includes implementations:
-- Authentication system
-- Notification system
+- Authentication System
+- Notification System
 - Image Upload using Base64 strings
 - Prisma ORM with MongoDB
 - Responsive Layout
-- 1 To Many Relations (User - Post)
-- Many To Many Relations (Post - Comment)
-- Following functionality
-- Comments / Replies
-- Likes functionality
+- 1-to-Many Relations (User - Post)
+- Many-to-Many Relations (Post - Comment)
+- Following Functionality
+- Comments/Replies
+- Like Functionality
 - Vercel Deployment
 
 # How to run
